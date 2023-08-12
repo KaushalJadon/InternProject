@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+  <div style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); padding: 20px; text-align: center;">
+    <h1>Temperature Converter</h1>
+    <div style="margin-bottom: 20px;">
+      <label for="celsius" style="font-weight: bold;">Celsius:</label>
+      <input type="text" id="celsius" placeholder="Enter temperature in Celsius">
+      <button id="convertBtn" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="convertTemperature()">Convert</button>
+    </div>
+    <div style="font-size: 18px;">
+      Fahrenheit: <span id="fahrenheitOutput">-</span>
+    </div>
+  </div>
+
+  <script>
+    function convertTemperature() {
+      const celsiusInput = document.getElementById("celsius");
+      const fahrenheitOutput = document.getElementById("fahrenheitOutput");
+      const celsiusString = celsiusInput.value;
+
+      if (!isNaN(celsiusString)) {
+        const celsius = +celsiusString; // Convert to number using unary plus
+        const fahrenheit = celsius * 9/5 + 32;
+        fahrenheitOutput.textContent = fahrenheit + " °F";
+      } else {
+        fahrenheitOutput.textContent = "-";
+      }
+    }
+  </script>
+</body>
+</html>
+
